@@ -1,11 +1,11 @@
-const Animal = require('../models/Animal.model');
+const Pet = require('../models/Pet.model');
 
-module.exports.animalController = {
-	addAnimal: async (req, res) => {
+module.exports.petsController = {
+	addPet: async (req, res) => {
 		const { name, age, gender, description, type, price } = req.body;
 
 		try {
-			const animal = await Animal.create({
+			const pet = await Pet.create({
 				name,
 				age,
 				gender,
@@ -14,16 +14,16 @@ module.exports.animalController = {
 				type,
 				price
 			});
-			return res.json(animal)
+			return res.json(pet)
 		} catch (e) {
 			return res.json({error: e.message})
 		}
 	},
 
-	getAnimals: async (req, res) => {
+	getPets: async (req, res) => {
 		try {
-			const animals = Animal.find();
-			return res.json(animals);
+			const pets = Pet.find();
+			return res.json(pets);
 		} catch (e) {
 			return res.json({error: e.message})
 		}
