@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const categorySchema = mongoose.Schema({
-  name: {
+  category: {
     type: String,
     required: true,
   },
-  image: {
+  img: {
     type: String,
     required: true,
   },
