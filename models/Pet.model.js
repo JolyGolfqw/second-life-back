@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const petSchema = mongoose.Schema({
 	name: {
 		type: String,
-		required: true
+		// required: true
 	},
 
 	age: {
 		type: Number,
-		required: true
+		// required: true
 	},
 
 	gender: String, // пол
@@ -22,6 +22,6 @@ const petSchema = mongoose.Schema({
 	price: Number
 });
 
-const Pet = mongoose.model('Animal', animalSchema);
+const Pet = mongoose.model('Pet', petSchema);
 
 module.exports = Pet;

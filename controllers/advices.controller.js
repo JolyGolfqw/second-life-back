@@ -4,9 +4,9 @@ module.exports.advicesController = {
   getAdvices: async (req, res) => {
     try {
       const advices = await Advice.find();
-      res.json(advices);
+      return res.json(advices);
     } catch (err) {
-      res.json({ error: err.message });
+      return res.json({ error: err.message });
     }
   },
 
