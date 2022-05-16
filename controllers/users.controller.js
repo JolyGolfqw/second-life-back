@@ -7,9 +7,9 @@ module.exports.usersController = {
   getUsers: async (req, res) => {
     try {
       const users = await User.find();
-      res.json(users);
+      return res.json(users);
     } catch (err) {
-      res.json({ error: err.message });
+      return res.json({ error: err.message });
     }
   },
 
@@ -25,9 +25,9 @@ module.exports.usersController = {
         contact,
         address,
       });
-      res.json(user);
+      return res.json(user);
     } catch (err) {
-      res
+      return res
         .status(400)
         .json({ error: `Ошибка при регистрации: такой логин уже существует` });
     }
