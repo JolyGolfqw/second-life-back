@@ -1,17 +1,21 @@
-const Pet = require("../models/Pet.model");
+const PetKeeping = require("../models/PetKeeping.model")
 
-module.exports.petsController = {
+module.exports.petsKeepingController = {
   addPet: async (req, res) => {
-    const { name, age, gender, description, type } = req.body;
+    const { name, age, gender, description, type, price, period, contact, address } = req.body;
 
     try {
-      const pet = await Pet.create({
+      const pet = await PetKeeping.create({
         name,
         age,
         gender,
         image: req.file.path,
         description,
         type,
+        price,
+        period,
+        contact,
+        address
       });
       return res.json(pet);
     } catch (err) {
@@ -21,7 +25,7 @@ module.exports.petsController = {
 
   getPets: async (req, res) => {
     try {
-      const pets = await Pet.find();
+      const pets = await PetKeeping.find();
       return res.json(pets);
     } catch (err) {
       return res.json({ error: err.message });

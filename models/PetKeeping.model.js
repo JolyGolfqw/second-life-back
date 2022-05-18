@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const petSchema = mongoose.Schema({
+const petKeepingSchema = mongoose.Schema({
   name: {
     type: String,
     // required: true
@@ -19,6 +19,10 @@ const petSchema = mongoose.Schema({
 
   type: String, // тут можно было бы оставить реф на определенный тип животных, чтобы у нас была на фронте возможность сортировки животных по типу(виду). для этого надо будет создать отдельную модель
 
+  price: String,
+
+  period: String,
+
   contact: Number,
 
   address: String,
@@ -29,6 +33,6 @@ const petSchema = mongoose.Schema({
   },
 });
 
-const Pet = mongoose.model("Pet", petSchema);
+const PetKeeping = mongoose.model("PetKeeping", petKeepingSchema);
 
-module.exports = Pet;
+module.exports = PetKeeping;
