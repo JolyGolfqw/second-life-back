@@ -3,32 +3,36 @@ const mongoose = require("mongoose");
 const petSchema = mongoose.Schema({
   name: {
     type: String,
-    // required: true
+    required: true,
   },
 
   age: {
-    type: String,
-    // required: true
+    type: Number,
+    required: true,
   },
 
-  gender: String, // пол
+  gender: {
+    type: String,
+    required: true,
+  },
 
-  image: String,
+  img: {
+    type: String,
+    required: true,
+  },
 
-  description: String, // описание
+  description: {
+    type: String,
+    required: true,
+  },
 
-  type: String, // тут можно было бы оставить реф на определенный тип животных, чтобы у нас была на фронте возможность сортировки животных по типу(виду). для этого надо будет создать отдельную модель
-
-  contact: Number,
-
-  address: String,
-
-  date: {
-    type: Date,
-    default: Date.now,
+  type: {
+    ref: "Category",
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
   },
 });
 
-const Pet = mongoose.model("Pet", petSchema);
+const Pet = mongoose.model("Pets", petSchema);
 
 module.exports = Pet;
