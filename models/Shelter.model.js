@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const shelterSchema = mongoose.Schema({
 	login : {
 		type: String,
-		unique: true
+		// unique: true
 	},
 
 	password: {
 		type: String,
-		required: true
+		// required: true
 	},
 
 	name: String,

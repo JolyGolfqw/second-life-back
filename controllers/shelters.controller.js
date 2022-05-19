@@ -14,24 +14,24 @@ module.exports.sheltersController = {
   },
 
   registration: async (req, res) => {
+		const {
+			login,
+			password,
+			name,
+			description,
+			contacts,
+			address,
+			email,
+			requisites,
+		} = req.body;
+
     try {
-      const {
-        login,
-        password,
-        name,
-        avatar,
-        description,
-        contacts,
-        address,
-        email,
-        requisites,
-      } = req.body;
       const hash = await bcrypt.hash(password, Number(process.env.ROUNDS));
       const shelter = await Shelter.create({
         login,
         password: hash,
         name,
-        avatar,
+        avatar: req.file.path,
         description,
         contacts,
         address,
