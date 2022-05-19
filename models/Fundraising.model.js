@@ -21,9 +21,12 @@ const fundraisingSchema = mongoose.Schema({
         required: true,
     },
 
-    requisites: {
-        type: String,
-        required: true,
+    cardNumber: {
+        type: String
+    },
+
+    phoneNumber: {
+        type: Number
     },
 
     description: {
@@ -32,6 +35,6 @@ const fundraisingSchema = mongoose.Schema({
     },
 });
 
-const Fundraising = mongoose.model("Category", fundraisingSchema);
+const Fundraising = mongoose.model("Fundraising", fundraisingSchema);
 
 module.exports = Fundraising;
