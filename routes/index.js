@@ -8,5 +8,6 @@ router.use(require('./shelters.route'))
 router.use(require('./petsKeeping.route'))
 router.use(require('./fundraisings.route'))
 router.use(require('./news.route'))
+router.use(require('./users.route'))
 
 module.exports = router
