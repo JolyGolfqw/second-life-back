@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/pets', imageMiddleware.single('img'), petsController.addPet);
 router.get('/pets', petsController.getPets);
-// router.get("/pets/type/:id", petsController.getPetsByType);
+router.get("/pets/type/:id", petsController.getPetsByType);
 
 
 module.exports = router;
