@@ -2,15 +2,16 @@ const Fundraising = require("../models/Fundraising.model");
 
 module.exports.fundraisingsController = {
   addFundraising: async (req, res) => {
-    const { title, organizer, amount, image, requisites, description } =
+    const { title, organizer, amount, cardNumber, phoneNumber, description } =
       req.body;
     try {
-      const fundraisings = await Fundraisings.create({
+      const fundraisings = await Fundraising.create({
         title,
         organizer,
         amount,
-        image,
-        requisites,
+        image: req.file.path,
+        cardNumber,
+        phoneNumber,
         description,
       });
       return res.json(fundraisings);
@@ -29,7 +30,7 @@ module.exports.fundraisingsController = {
   },
 
   editFundraisingById: async (req, res) => {
-    const { title, organizer, amount, image, requisites, description } =
+    const { title, organizer, amount, cardNumber, phoneNumber, description  } =
       req.body;
     try {
       const fundraisings = await Fundraising.findByIdAndUpdate(req.params.id, {
