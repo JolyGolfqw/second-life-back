@@ -27,10 +27,9 @@ const petSchema = mongoose.Schema({
   },
 
   type: {
-    // ref: "Category",
-    // type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    type: mongoose.Schema.Types.ObjectId,
     // // required: true,
-	type: String
   },
 
   isShelter: {
