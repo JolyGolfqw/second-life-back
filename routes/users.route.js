@@ -5,7 +5,7 @@ const fileMiddleware = require("../middlewares/auth.middleware");
 const router = Router();
 
 router.get("/users", usersController.getUsers);
-router.post("/login", usersController.login);
+router.post("/user/login", usersController.login);
 router.post("/users", usersController.registration);
 
 module.exports = router;
