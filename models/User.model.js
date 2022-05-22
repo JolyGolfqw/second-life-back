@@ -11,6 +11,11 @@ const userSchema = mongoose.Schema({
     required: true,
   },
 
+	role: {
+		type: String,
+		default: "user",
+	},
+
   name: { type: String, required: true },
 
   avatar: {
@@ -20,14 +25,22 @@ const userSchema = mongoose.Schema({
 
   contact: {
     type: Number,
-    required: true,
+    // required: true,
   },
 
   address: {
     type: String,
-    required: true,
+    // required: true,
   },
+
+  rating: [{
+    type: Number,
+    default: 0
+  }],
+
+  
 });
+
 
 const User = mongoose.model("User", userSchema);
 

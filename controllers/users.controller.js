@@ -14,12 +14,13 @@ module.exports.usersController = {
   },
 
   registration: async (req, res) => {
+		const { login, password, role, name, avatar, contact, address } = req.body;
+		const hash = await bcrypt.hash(password, Number(process.env.ROUNDS));
     try {
-      const { login, password, name, avatar, contact, address } = req.body;
-      const hash = await bcrypt.hash(password, Number(process.env.ROUNDS));
       const user = await User.create({
         login,
         password: hash,
+				role,
         name,
         avatar,
         contact,
@@ -53,13 +54,27 @@ module.exports.usersController = {
       expiresIn: "24h",
     });
     console.log(candidate.name);
-    res.json({
+    return res.json({
       token,
       id: payload.id,
       name: candidate.name,
       avatar: candidate.avatar,
+			role: candidate.role
       //   contact: candidate.contact,
       //   address: candidate.address,
     });
+  },
+
+  rating: async (req, res) => {
+    try {
+     const rating =  await User.findByIdAndUpdate(req.params.id, {
+       $push: {
+        rating: req.body.rating
+       }
+      })
+      res.json(rating)
+    } catch (err) {
+      res.json({error: 'Ошибка при попытке добавить рейтинг'})
+    }
   },
 };

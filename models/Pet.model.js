@@ -36,6 +36,17 @@ const petSchema = mongoose.Schema({
 	  type: Boolean,
 	  default: false
   }
+
+
+  author: {
+	  ref: 'User',
+	  type: mongoose.Schema.Types.ObjectId,
+	},
+
+	shelter: {
+		ref: 'Shelter',
+		type: mongoose.Schema.Types.ObjectId,
+	  },
 });
 
 const Pet = mongoose.model("Pet", petSchema);

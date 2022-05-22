@@ -31,6 +31,11 @@ const petKeepingSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
+  author: {
+    ref: 'User',
+    type: mongoose.Schema.Types.ObjectId,
+  }
 });
 
 const PetKeeping = mongoose.model("PetKeeping", petKeepingSchema);
