@@ -9,7 +9,7 @@ module.exports.petsController = {
         name,
         age,
         gender,
-        image: req.file.path,
+        img: req.file.path,
         description,
         type,
         contact,
