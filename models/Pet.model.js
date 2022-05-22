@@ -3,36 +3,41 @@ const mongoose = require("mongoose");
 const petSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    // required: true,
   },
 
   age: {
-    type: Number,
-    required: true,
+    type: String,
+    // required: true,
   },
 
   gender: {
     type: String,
-    required: true,
+    // required: true,
   },
 
   img: {
     type: String,
-    required: true,
+    // required: true,
   },
 
   description: {
     type: String,
-    required: true,
+    // required: true,
   },
 
   type: {
     ref: "Category",
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    // // required: true,
   },
+
+  isShelter: {
+	  type: String,
+	  default: 'user'
+  }
 });
 
-const Pet = mongoose.model("Pets", petSchema);
+const Pet = mongoose.model("Pet", petSchema);
 
 module.exports = Pet;
