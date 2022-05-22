@@ -33,9 +33,10 @@ const petSchema = mongoose.Schema({
   },
 
   isShelter: {
-	  type: String,
-	  default: 'user'
-  },
+	  type: Boolean,
+	  default: false
+  }
+
 
   author: {
 	  ref: 'User',
