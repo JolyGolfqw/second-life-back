@@ -54,7 +54,7 @@ module.exports.usersController = {
       expiresIn: "24h",
     });
     console.log(candidate.name);
-    res.json({
+    return res.json({
       token,
       id: payload.id,
       name: candidate.name,
