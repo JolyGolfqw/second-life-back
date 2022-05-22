@@ -35,7 +35,7 @@ const petSchema = mongoose.Schema({
   isShelter: {
 	  type: Boolean,
 	  default: false
-  }
+  },
 
 
   author: {
