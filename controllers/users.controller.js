@@ -64,4 +64,17 @@ module.exports.usersController = {
       //   address: candidate.address,
     });
   },
+
+  rating: async (req, res) => {
+    try {
+     const rating =  await User.findByIdAndUpdate(req.params.id, {
+       $push: {
+        rating: req.body.rating
+       }
+      })
+      res.json(rating)
+    } catch (err) {
+      res.json({error: 'Ошибка при попытке добавить рейтинг'})
+    }
+  },
 };

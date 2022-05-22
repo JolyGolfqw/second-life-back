@@ -5,10 +5,10 @@ const gallerySchema = mongoose.Schema({
         type: String
     },
 
-    // author: {
-    //     ref: 'Shelter',
-    //     type: mongoose.Schema.Types.ObjectId
-    // }
+    author: {
+        ref: 'Shelter',
+        type: mongoose.Schema.Types.ObjectId
+    }
 })
 
 const Gallery = mongoose.model('Gallery', gallerySchema)

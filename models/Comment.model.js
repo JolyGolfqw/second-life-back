@@ -3,17 +3,19 @@ const mongoose = require("mongoose");
 const commentSchema = mongoose.Schema({
   text: {
     type: String,
-    required: true,
+    // required: true,
   },
 
-  user: {
+  author: {
     ref: "User",
     type: mongoose.Schema.Types.ObjectId,
   },
-  books: {
-    ref: "Book",
+
+  addressee: {
+    ref: "User",
     type: mongoose.Schema.Types.ObjectId,
   },
+
   date: {
     type: Date,
     default: Date.now,

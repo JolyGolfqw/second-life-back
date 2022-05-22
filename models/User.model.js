@@ -33,10 +33,10 @@ const userSchema = mongoose.Schema({
     // required: true,
   },
 
-  rating: {
+  rating: [{
     type: Number,
     default: 0
-  },
+  }],
 
   
 });
