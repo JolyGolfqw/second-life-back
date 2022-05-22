@@ -54,7 +54,7 @@ module.exports.usersController = {
       expiresIn: "24h",
     });
     console.log(candidate.name);
-    res.json({
+    return res.json({
       token,
       id: payload.id,
       name: candidate.name,
@@ -63,5 +63,18 @@ module.exports.usersController = {
       //   contact: candidate.contact,
       //   address: candidate.address,
     });
+  },
+
+  rating: async (req, res) => {
+    try {
+     const rating =  await User.findByIdAndUpdate(req.params.id, {
+       $push: {
+        rating: req.body.rating
+       }
+      })
+      res.json(rating)
+    } catch (err) {
+      res.json({error: 'Ошибка при попытке добавить рейтинг'})
+    }
   },
 };
