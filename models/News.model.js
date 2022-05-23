@@ -8,9 +8,10 @@ const newsSchema = mongoose.Schema({
         ref: 'Shelter',
         type: mongoose.Schema.Types.ObjectId,
       },
-    date: {
-        type: Date
-    }
+      date: {
+        type: Date,
+        default: Date.now,
+      },
 })
 
 const News = mongoose.model('News', newsSchema)
