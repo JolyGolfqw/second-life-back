@@ -2,12 +2,11 @@ const Fundraising = require("../models/Fundraising.model");
 
 module.exports.fundraisingsController = {
   addFundraising: async (req, res) => {
-    const { title, organizer, amount, cardNumber, phoneNumber, description, author } =
+    const { title, amount, cardNumber, phoneNumber, description, author } =
       req.body;
     try {
       const fundraisings = await Fundraising.create({
         title,
-        organizer,
         amount,
         image: req.file.path,
         cardNumber,

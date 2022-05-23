@@ -6,11 +6,6 @@ const fundraisingSchema = mongoose.Schema({
         required: true,
     },
 
-    organizer: {
-        type: String,
-        required: true,
-    },
-
     amount: {
         type: String,
         required: true,
