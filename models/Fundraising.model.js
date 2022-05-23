@@ -33,6 +33,11 @@ const fundraisingSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+
+    author: {
+        ref: 'Shelter',
+        type: mongoose.Schema.Types.ObjectId,
+      },
 });
 
 const Fundraising = mongoose.model("Fundraising", fundraisingSchema);

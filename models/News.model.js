@@ -4,7 +4,10 @@ const newsSchema = mongoose.Schema({
     image: String,
     title: String,
     description: String,
-    author: String,
+    author: {
+        ref: 'User',
+        type: mongoose.Schema.Types.ObjectId,
+      },
     date: {
         type: Date
     }

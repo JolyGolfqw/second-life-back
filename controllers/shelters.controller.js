@@ -75,4 +75,23 @@ module.exports.sheltersController = {
       requisites: candidate.registration,
     });
   },
+
+  editShelter: async (req, res) => {
+    const { name, contacts, address, email, requisities, description } =
+      req.body;
+    try {
+      const shelter = await Shelter.findByIdAndUpdate(req.params.id, {
+        img: req.file.path,
+        name,
+        contacts,
+        address,
+        email,
+        requisities,
+        description
+      });
+      return res.json(shelter);
+    } catch (err) {
+      return res.json({ error: err.message });
+    }
+  },
 };

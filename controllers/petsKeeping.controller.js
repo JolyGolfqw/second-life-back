@@ -2,7 +2,7 @@ const PetKeeping = require("../models/PetKeeping.model")
 
 module.exports.petsKeepingController = {
   addPet: async (req, res) => {
-    const { name, age, gender, description, type, price, period, contact, address } = req.body;
+    const { name, age, gender, description, type, price, period, contact, address, author } = req.body;
 
     try {
       const pet = await PetKeeping.create({
@@ -15,7 +15,8 @@ module.exports.petsKeepingController = {
         price,
         period,
         contact,
-        address
+        address,
+        author
       });
       return res.json(pet);
     } catch (err) {
