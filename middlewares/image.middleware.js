@@ -10,8 +10,8 @@ const storage = multer.diskStorage({
 });
 
 multer({
-  limits: { fieldSize: 2 * 1024 * 1024 }
-})
+  limits: { fieldSize: 2 * 1024 * 1024 },
+});
 
 const types = ["image/png", "image/jpeg", "image/jpg"];
 const fileFilter = (req, file, cb) => {

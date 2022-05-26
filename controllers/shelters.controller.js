@@ -14,16 +14,16 @@ module.exports.sheltersController = {
   },
 
   registration: async (req, res) => {
-		const {
-			login,
-			password,
-			name,
-			description,
-			contacts,
-			address,
-			email,
-			requisites,
-		} = req.body;
+    const {
+      login,
+      password,
+      name,
+      description,
+      contacts,
+      address,
+      email,
+      requisites,
+    } = req.body;
 
     try {
       const hash = await bcrypt.hash(password, Number(process.env.ROUNDS));
@@ -87,7 +87,7 @@ module.exports.sheltersController = {
         address,
         email,
         requisities,
-        description
+        description,
       });
       return res.json(shelter);
     } catch (err) {

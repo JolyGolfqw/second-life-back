@@ -8,9 +8,8 @@ module.exports.newsController = {
         image: req.file.path,
         title,
         description,
-        author
+        author,
       });
-
       return res.json(news);
     } catch (err) {
       return res.json(err.message);

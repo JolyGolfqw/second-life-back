@@ -3,40 +3,39 @@ const mongoose = require("mongoose");
 const petSchema = mongoose.Schema({
   name: {
     type: String,
-    // required: true,
+    required: true,
   },
 
   age: {
     type: String,
-    // required: true,
+    required: true,
   },
 
   gender: {
     type: String,
-    // required: true,
+    required: true,
   },
 
   img: {
     type: String,
-    // required: true,
+    required: true,
   },
 
   description: {
     type: String,
-    // required: true,
+    required: true,
   },
 
   type: {
     ref: "Category",
     type: mongoose.Schema.Types.ObjectId,
-    // // required: true,
+    required: true,
   },
 
   isShelter: {
 	  type: Boolean,
 	  default: false
   },
-
 
   author: {
 	  ref: 'User',

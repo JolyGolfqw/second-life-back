@@ -7,7 +7,6 @@ module.exports.categoriesController = {
         category: req.body.category,
         img: req.body.img,
       });
-
       return res.json(category);
     } catch (err) {
       return res.json({ error: err.message });

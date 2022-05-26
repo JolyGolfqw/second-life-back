@@ -3,21 +3,25 @@ const mongoose = require("mongoose");
 const petKeepingSchema = mongoose.Schema({
   name: {
     type: String,
-    // required: true
+    required: true,
   },
 
   age: {
     type: String,
-    // required: true
+    required: true,
   },
 
-  gender: String, // пол
+  gender: String,
 
   image: String,
 
-  description: String, // описание
+  description: String,
 
-  type: String, // тут можно было бы оставить реф на определенный тип животных, чтобы у нас была на фронте возможность сортировки животных по типу(виду). для этого надо будет создать отдельную модель
+  type: {
+    ref: "Category",
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
 
   price: String,
 
@@ -33,9 +37,9 @@ const petKeepingSchema = mongoose.Schema({
   },
 
   author: {
-    ref: 'User',
+    ref: "User",
     type: mongoose.Schema.Types.ObjectId,
-  }
+  },
 });
 
 const PetKeeping = mongoose.model("PetKeeping", petKeepingSchema);

@@ -14,13 +14,13 @@ module.exports.usersController = {
   },
 
   registration: async (req, res) => {
-		const { login, password, role, name, avatar, contact, address } = req.body;
-		const hash = await bcrypt.hash(password, Number(process.env.ROUNDS));
+    const { login, password, role, name, avatar, contact, address } = req.body;
+    const hash = await bcrypt.hash(password, Number(process.env.ROUNDS));
     try {
       const user = await User.create({
         login,
         password: hash,
-				role,
+        role,
         name,
         avatar,
         contact,
@@ -59,22 +59,20 @@ module.exports.usersController = {
       id: payload.id,
       name: candidate.name,
       avatar: candidate.avatar,
-			role: candidate.role
-      //   contact: candidate.contact,
-      //   address: candidate.address,
+      role: candidate.role,
     });
   },
 
   rating: async (req, res) => {
     try {
-     const rating =  await User.findByIdAndUpdate(req.params.id, {
-       $push: {
-        rating: req.body.rating
-       }
-      })
-      res.json(rating)
+      const rating = await User.findByIdAndUpdate(req.params.id, {
+        $push: {
+          rating: req.body.rating,
+        },
+      });
+      return res.json(rating);
     } catch (err) {
-      res.json({error: 'Ошибка при попытке добавить рейтинг'})
+      return res.json({ error: err.message });
     }
   },
 };

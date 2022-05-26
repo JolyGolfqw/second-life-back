@@ -1,36 +1,38 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const shelterSchema = mongoose.Schema({
-	login : {
-		type: String,
-		// unique: true
-	},
+  login: {
+    type: String,
+    unique: true,
+  },
 
-	password: {
-		type: String,
-		// required: true
-	},
+  password: {
+    type: String,
+    required: true,
+  },
 
-	name: String,
+  name: String,
 
-	avatar: {
-		type: String,
-		// default: 'images\\user.png'
-	},
+  avatar: {
+    type: String,
+    // default: 'images\\user.png'
+  },
 
-	description: String,
+  description: String,
 
-	contacts: String,
+  contacts: String,
 
-	address: String,
+  address: String,
 
-	email: String,
+  email: String,
 
-	requisites: [{
-		type: String
-	}]
+  requisites: [
+    {
+      type: String,
+    },
+  ],
 });
 
-const Shelter = mongoose.model('Shelter', shelterSchema);
+const Shelter = mongoose.model("Shelter", shelterSchema);
 
 module.exports = Shelter;

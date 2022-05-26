@@ -2,7 +2,18 @@ const Pet = require("../models/Pet.model");
 
 module.exports.petsController = {
   addPet: async (req, res) => {
-    const { name, age, gender, description, type, contact, address, isShelter, author, shelter } = req.body;
+    const {
+      name,
+      age,
+      gender,
+      description,
+      type,
+      contact,
+      address,
+      isShelter,
+      author,
+      shelter,
+    } = req.body;
 
     try {
       const pet = await Pet.create({
@@ -16,7 +27,7 @@ module.exports.petsController = {
         address,
         isShelter,
         author,
-        shelter
+        shelter,
       });
       return res.json(pet);
     } catch (err) {
@@ -35,7 +46,7 @@ module.exports.petsController = {
 
   getShelterPets: async (req, res) => {
     try {
-      const pets = await Pet.find({isShelter: true});
+      const pets = await Pet.find({ isShelter: true });
       return res.json(pets);
     } catch (err) {
       return res.json({ error: err.message });

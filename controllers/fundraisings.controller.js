@@ -12,7 +12,7 @@ module.exports.fundraisingsController = {
         cardNumber,
         phoneNumber,
         description,
-        author
+        author,
       });
       return res.json(fundraisings);
     } catch (err) {
@@ -30,7 +30,7 @@ module.exports.fundraisingsController = {
   },
 
   editFundraisingById: async (req, res) => {
-    const { title, organizer, amount, cardNumber, phoneNumber, description  } =
+    const { title, organizer, amount, cardNumber, phoneNumber, description } =
       req.body;
     try {
       const fundraisings = await Fundraising.findByIdAndUpdate(req.params.id, {
