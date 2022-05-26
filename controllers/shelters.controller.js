@@ -72,7 +72,7 @@ module.exports.sheltersController = {
       contacts: candidate.contacts,
       address: candidate.address,
       email: candidate.email,
-      requisites: candidate.registration,
+      requisites: candidate.requisites,
     });
   },
 
